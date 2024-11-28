@@ -60,7 +60,7 @@ const MovieSearch = () => {
                                 </p>
                                 <p>
                                     <strong>Lingua:</strong>
-                                    {movie.original_lenguage}
+                                    {movie.original_language}
                                 </p>
                                 <p>
                                     <strong>Voto:</strong>
