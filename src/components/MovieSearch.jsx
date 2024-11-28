@@ -9,7 +9,7 @@ const MovieSearch = () => {
 
     const API_KEY = '2dac3390988d579dbe536ee1ab9afbac'
     const API_URL_MOVIES = 'https://api.themoviedb.org/3/search/movie'
-    const API_URL_TV = 'https://api.themoviedb.org/3/search/movie'
+    const API_URL_TV = 'https://api.themoviedb.org/3/search/tv'
 
     const handleChange = (e) => {
         setQuery(e.target.value)
