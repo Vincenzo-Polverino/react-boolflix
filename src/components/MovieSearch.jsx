@@ -51,7 +51,7 @@ const MovieSearch = () => {
 
     const langFlag = (lang) => {
 
-        const langCode = lang ? lang.toLowerCase() : null
+        const langCode = lang ? (lang.toLowerCase() === 'en' ? 'gb' : lang.toLowerCase()) : null
 
         return <Flag code={langCode} style={{ width: '30px', height: '20px' }} />
 
