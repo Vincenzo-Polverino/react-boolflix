@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import Flag from 'react-world-flags'
+import { FaStar, FaRegStar } from 'react-icons/fa'
 
 const MovieSearch = () => {
     const [query, setQuery] = useState('')
@@ -10,6 +11,7 @@ const MovieSearch = () => {
     const API_KEY = '2dac3390988d579dbe536ee1ab9afbac'
     const API_URL_MOVIES = 'https://api.themoviedb.org/3/search/movie'
     const API_URL_TV = 'https://api.themoviedb.org/3/search/tv'
+    const IMAGE_URL = 'https://image.tmdb.org/t/p/w342/'
 
     const handleChange = (e) => {
         setQuery(e.target.value)
@@ -55,6 +57,20 @@ const MovieSearch = () => {
 
     }
 
+
+    const getRatingStars = (vote) => {
+        const roundedVote = Math.ceil(vote / 2)
+        const stars = []
+
+        for (let i = 1; i <= 5; i++) {
+            stars.push(i <= roundedVote ? <FaStar key={i} /> : <FaRegStar key={i} />)
+        }
+
+        return stars
+
+
+    }
+
     return (
 
         <div>
@@ -82,6 +98,11 @@ const MovieSearch = () => {
                                 <ul>
                                     {movies.map((movie) => (
                                         <li key={movie.id}>
+                                            <img
+                                                src={IMAGE_URL + movie.poster_path}
+                                                alt={movie.title}
+                                                style={{ width: '150px', height: '225px' }}
+                                            />
                                             <h3>{movie.title}</h3>
                                             <p>
                                                 <strong>Titolo originale:</strong>
@@ -95,7 +116,7 @@ const MovieSearch = () => {
                                             </p>
                                             <p>
                                                 <strong>Voto:</strong>
-                                                {movie.vote_average}
+                                                {getRatingStars(movie.vote_average)}
                                             </p>
                                         </li>
                                     ))}
@@ -110,7 +131,11 @@ const MovieSearch = () => {
                                     {series.map((serie) => (
 
                                         <li key={serie.id}>
-
+                                            <img
+                                                src={IMAGE_URL + serie.poster_path}
+                                                alt={serie.name}
+                                                style={{ width: '150px', height: '225px' }}
+                                            />
                                             <h3>{serie.name}</h3>
 
                                             <p>
@@ -126,7 +151,7 @@ const MovieSearch = () => {
                                             </p>
                                             <p>
                                                 <strong>Voto:</strong>
-                                                {serie.vote_average}
+                                                {getRatingStars(serie.vote_average)}
 
                                             </p>
                                         </li>
