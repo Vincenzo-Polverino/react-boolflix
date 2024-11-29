@@ -2,6 +2,8 @@ import { useGlobalContext } from './contexts/GlobalContext'
 import languageToFlag from './components/languageFlags'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+import AppHeader from './components/AppHeader';
+
 const App = () => {
   const {
     query,
@@ -16,8 +18,7 @@ const App = () => {
 
     <>
 
-      <header>
-
+      {/*<header>
 
         <img className="logo" src="./public/logo.png" alt="Logo" />
 
@@ -33,11 +34,9 @@ const App = () => {
           </button>
         </div>
 
+      </header>*/}
 
-
-      </header>
-
-
+      <AppHeader query={query} handleChange={handleChange} handleSearch={handleSearch} />
 
       <main>
 
