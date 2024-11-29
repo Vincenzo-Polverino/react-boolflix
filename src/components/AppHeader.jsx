@@ -3,7 +3,9 @@ import React from 'react';
 const AppHeader = ({ query, handleChange, handleSearch }) => {
     return (
         <header>
-            <img className="logo" src="./public/logo.png" alt="Logo" />
+            <a href="/" onClick={(e) => { e.preventDefault(); window.location.reload(); }}>
+                <img className="logo" src="./public/logo.png" alt="Logo" />
+            </a>
 
             <div className="m-3 d-flex">
                 <input
