@@ -21,7 +21,7 @@ const App = () => {
         {Array.isArray(movies) && movies.length > 0 ? (
           <MovieList movies={movies} getRatingStars={getRatingStars} />
         ) : (
-          <div>Nessun risultato</div>
+          <h1 className='d-flex my-5 justify-content-center align-items-center'>Nessun risultato</h1>
         )}
       </main>
     </>

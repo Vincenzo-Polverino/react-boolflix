@@ -1,4 +1,4 @@
-import React, { createContext, useState, useContext } from 'react';
+import React, { createContext, useState, useContext, useEffect } from 'react';
 
 const GlobalContext = createContext();
 
@@ -8,6 +8,17 @@ export const GlobalProvider = ({ children }) => {
     const API_KEY = import.meta.env.VITE_MOVIE_DB_API_KEY;
     const IMAGE_URL = 'https://image.tmdb.org/t/p/w342/';
     const API_URL = 'https://api.themoviedb.org/3/search/multi';
+
+
+    useEffect(() => {
+        if (!query) {
+            fetch(`https://api.themoviedb.org/3/trending/movie/day?api_key=${API_KEY}`)
+                .then((res) => res.json())
+                .then(({ results }) => {
+                    setMovies(results);
+                });
+        }
+    }, [query, API_KEY]);
 
     const handleChange = (e) => {
         setQuery(e.target.value);
