@@ -1,62 +1,15 @@
-import { useState } from 'react'
-import Flag from 'react-world-flags'
-import { FaStar, FaRegStar } from 'react-icons/fa'
+import { useGlobalContext } from './contexts/GlobalContext'
 
 const App = () => {
-  const [query, setQuery] = useState('')
-  const [movies, setMovies] = useState([])
-
-
-  const API_KEY = '2dac3390988d579dbe536ee1ab9afbac'
-  const IMAGE_URL = 'https://image.tmdb.org/t/p/w342/'
-  const API_URL = 'https://api.themoviedb.org/3/search/multi'
-
-  const handleChange = (e) => {
-    setQuery(e.target.value)
-  }
-
-  const handleSearch = () => {
-
-    if (!query) return
-
-    setMovies([])
-
-
-    fetch(`${API_URL}?api_key=${API_KEY}&query=${query}&language=it`)
-
-      .then(res => {
-
-        return res.json()
-      })
-
-      .then(data => {
-        setMovies(data.results)
-
-      })
-  }
-
-
-  const langFlag = (lang) => {
-
-    const langCode = lang ? (lang.toLowerCase() === 'en' ? 'gb' : lang.toLowerCase()) : null
-
-    return <Flag code={langCode} style={{ width: '30px', height: '20px' }} />
-
-  }
-
-
-  const getRatingStars = (vote) => {
-    const roundedVote = Math.ceil(vote / 2)
-    const stars = []
-
-    for (let i = 1; i <= 5; i++) {
-      stars.push(i <= roundedVote ? <FaStar key={i} /> : <FaRegStar key={i} />)
-    }
-
-    return stars
-
-
-  }
+  const {
+    query,
+    movies,
+    handleChange,
+    handleSearch,
+    IMAGE_URL,
+    langFlag,
+    getRatingStars,
+  } = useGlobalContext();
 
   return (
 
