@@ -4,7 +4,34 @@
     box-sizing: border-box;
 }
 
-hr {
-    margin-top: 1rem;
-    margin-bottom: 1rem;
+.card {
+    position: relative;
+
+    .card-body {
+        color: white;
+        display: none;
+        position: absolute;
+        height: 100%;
+        width: 100%;
+
+        .flag {
+            border-radius: 2px;
+
+        }
+
+    }
+
+    .poster {
+        border-radius: 5px;
+        height: 100%;
+        width: 100%;
+    }
+
+    &:hover {
+        .card-body {
+            display: block;
+            background-color: rgba(0, 0, 0, 0.473)
+        }
+
+    }
 }

@@ -1,5 +1,6 @@
 import { useGlobalContext } from './contexts/GlobalContext'
 import languageToFlag from './components/languageFlags'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const App = () => {
   const {
@@ -17,73 +18,75 @@ const App = () => {
 
       <header>
 
+
         <h1>Boolflix</h1>
 
-        <input
-          type='text'
-          value={query}
-          onChange={handleChange}
-          placeholder='Cerca...'
-        />
+        <div className="m-3 d-flex">
+          <input
+            type='text'
+            value={query}
+            onChange={handleChange}
+            placeholder='Cerca...'
+          />
+          <button className="btn btn-secondary" onClick={handleSearch}>
+            Cerca
+          </button>
+        </div>
 
-        <button onClick={handleSearch}>
-          Cerca
-        </button>
+
 
       </header>
 
 
+
       <main>
+        <h2>Risultati ricerca</h2>
 
         {movies.length > 0 ? (
 
-          <div>
 
-            <h2>Risultati ricerca</h2>
+          <div className='container d-flex justify-content-center'>
 
-            <hr />
 
-            <ul>
+            <ul className='d-flex flex-wrap'>
               {movies.filter((movie) => movie.media_type !== "person").map((movie) => (
 
-                <li key={movie.id}>
+                <li className='card shadow col-3 m-5' key={movie.id}>
 
-                  <img
+                  <img className='poster'
                     src={movie.poster_path ? IMAGE_URL + movie.poster_path : './public/poster_placeholder.jpg'}
                     alt={movie.title || movie.name}
-                    style={{ width: '150px', height: '225px' }}
+
                   />
+                  <div className="card-body">
+                    <h3 className='card-title'>{movie.title || movie.name}</h3>
 
-                  <h3>{movie.title || movie.name}</h3>
+                    <p>
+                      <strong>Titolo originale: </strong>
+                      {movie.original_title}
+                    </p>
 
-                  <p>
-                    <strong>Titolo originale:</strong>
-                    {movie.original_title}
-                  </p>
+                    <p>
+                      <strong>Lingua:</strong>
+                      <img className='flag'
+                        src={`https://flagcdn.com/w20/${languageToFlag[movie.original_language]}.png`}
+                        alt={movie.original_language}
+                        style={{ width: '20px', height: '13px', marginLeft: '5px' }}
+                      />
+                    </p>
 
-                  <p>
-                    <strong>Lingua:</strong>
-                    <img
-                      src={`https://flagcdn.com/w20/${languageToFlag[movie.original_language]}.png`}
-                      alt={movie.original_language}
-                      style={{ width: '20px', marginLeft: '5px' }}
-                    />
-                  </p>
-
-                  <p>
-                    <strong>Voto:</strong>
-                    {getRatingStars(movie.vote_average)}
-                  </p>
-
-                  <hr />
-
+                    <p>
+                      <strong>Voto:</strong>
+                      {getRatingStars(movie.vote_average)}
+                    </p>
+                  </div>
                 </li>
 
               ))}
 
             </ul>
-
           </div>
+
 
         ) : <div> Nessun risultato</div>
 
