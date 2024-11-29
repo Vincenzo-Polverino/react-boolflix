@@ -31,14 +31,6 @@ export const GlobalProvider = ({ children }) => {
                 handleChange,
                 handleSearch,
                 IMAGE_URL,
-                langFlag: (lang) => {
-                    const langCode = lang
-                        ? lang.toLowerCase() === 'en'
-                            ? 'gb'
-                            : lang.toLowerCase()
-                        : null;
-                    return langCode;
-                },
                 getRatingStars: (vote) => {
                     const roundedVote = Math.ceil(vote / 2);
                     const stars = [];

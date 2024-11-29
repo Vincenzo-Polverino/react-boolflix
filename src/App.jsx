@@ -1,4 +1,5 @@
 import { useGlobalContext } from './contexts/GlobalContext'
+import languageToFlag from './components/languageFlags'
 
 const App = () => {
   const {
@@ -7,7 +8,6 @@ const App = () => {
     handleChange,
     handleSearch,
     IMAGE_URL,
-    langFlag,
     getRatingStars,
   } = useGlobalContext();
 
@@ -63,8 +63,11 @@ const App = () => {
 
                   <p>
                     <strong>Lingua:</strong>
-                    {langFlag(movie.original_language)}
-                    {movie.original_language}
+                    <img
+                      src={`https://flagcdn.com/w20/${languageToFlag[movie.original_language]}.png`}
+                      alt={movie.original_language}
+                      style={{ width: '20px', marginLeft: '5px' }}
+                    />
                   </p>
 
                   <p>
