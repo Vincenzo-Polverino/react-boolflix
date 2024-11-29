@@ -19,7 +19,7 @@ const App = () => {
       <header>
 
 
-        <h1>Boolflix</h1>
+        <img className="logo" src="./public/logo.png" alt="Logo" />
 
         <div className="m-3 d-flex">
           <input
@@ -40,7 +40,6 @@ const App = () => {
 
 
       <main>
-        <h2>Risultati ricerca</h2>
 
         {movies.length > 0 ? (
 
@@ -67,17 +66,22 @@ const App = () => {
                     </p>
 
                     <p>
-                      <strong>Lingua:</strong>
+                      <strong>Lingua: </strong>
                       <img className='flag'
                         src={`https://flagcdn.com/w20/${languageToFlag[movie.original_language]}.png`}
                         alt={movie.original_language}
-                        style={{ width: '20px', height: '13px', marginLeft: '5px' }}
+                        style={{ width: '20px', height: '13px' }}
                       />
                     </p>
 
                     <p>
-                      <strong>Voto:</strong>
+                      <strong>Voto: </strong>
                       {getRatingStars(movie.vote_average)}
+                    </p>
+
+                    <p className='movie_overview'>
+                      <h6>Overview:</h6>
+                      {movie.overview}
                     </p>
                   </div>
                 </li>

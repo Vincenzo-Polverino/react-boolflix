@@ -4,15 +4,39 @@
     box-sizing: border-box;
 }
 
+
+header {
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
 .card {
     position: relative;
+    max-height: 470px;
+
+
 
     .card-body {
         color: white;
         display: none;
         position: absolute;
+        top: 0;
+        bottom: 0;
         height: 100%;
         width: 100%;
+        overflow-y: auto;
+
+        .movie_overview {
+            text-align: justify;
+            font-style: italic;
+        }
+
 
         .flag {
             border-radius: 2px;
@@ -30,7 +54,7 @@
     &:hover {
         .card-body {
             display: block;
-            background-color: rgba(0, 0, 0, 0.473)
+            background-color: rgba(0, 0, 0, 0.61)
         }
 
     }
