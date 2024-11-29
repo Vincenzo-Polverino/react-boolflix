@@ -41,7 +41,7 @@ const App = () => {
 
       <main>
 
-        {movies.length > 0 ? (
+        {Array.isArray(movies) && movies.length > 0 ? (
 
 
           <div className='container d-flex justify-content-center'>

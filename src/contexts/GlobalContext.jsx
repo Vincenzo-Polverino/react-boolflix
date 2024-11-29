@@ -5,7 +5,7 @@ const GlobalContext = createContext();
 export const GlobalProvider = ({ children }) => {
     const [query, setQuery] = useState('');
     const [movies, setMovies] = useState([]);
-    const API_KEY = '2dac3390988d579dbe536ee1ab9afbac';
+    const API_KEY = import.meta.env.VITE_MOVIE_DB_API_KEY;
     const IMAGE_URL = 'https://image.tmdb.org/t/p/w342/';
     const API_URL = 'https://api.themoviedb.org/3/search/multi';
 
