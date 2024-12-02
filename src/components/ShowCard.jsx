@@ -1,5 +1,5 @@
 import React from 'react';
-import languageToFlag from './languageFlags'
+import LangFlag from './langFlag';
 import { useGlobalContext } from '../contexts/GlobalContext'
 
 const ShowCard = ({ show, getRatingStars }) => {
@@ -18,18 +18,12 @@ const ShowCard = ({ show, getRatingStars }) => {
 
                 <p>
                     <strong>Titolo originale: </strong>
-                    {show.original_title}
+                    {show.original_name}
                 </p>
 
                 <p>
-                    <strong>Lingua:</strong>
-                    <img
-                        className="flag mx-1"
-                        src={`https://flagcdn.com/w20/${languageToFlag[show.original_language]}.png`}
-                        alt={show.original_language}
-                        style={{ width: '20px', height: '13px' }}
-                    />
-                    {show.original_language}
+                    <strong>Lingua: </strong>
+                    <LangFlag lang={show.original_language} />
                 </p>
 
                 <p>

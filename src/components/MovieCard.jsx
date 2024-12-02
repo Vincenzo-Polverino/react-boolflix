@@ -1,5 +1,5 @@
 import React from 'react';
-import languageToFlag from './languageFlags'
+import LangFlag from './langFlag';
 import { useGlobalContext } from '../contexts/GlobalContext'
 
 const MovieCard = ({ movie, getRatingStars }) => {
@@ -22,14 +22,8 @@ const MovieCard = ({ movie, getRatingStars }) => {
                 </p>
 
                 <p>
-                    <strong>Lingua:</strong>
-                    <img
-                        className="flag mx-1"
-                        src={`https://flagcdn.com/w20/${languageToFlag[movie.original_language]}.png`}
-                        alt={movie.original_language}
-                        style={{ width: '20px', height: '13px' }}
-                    />
-                    {movie.original_language}
+                    <strong>Lingua: </strong>
+                    <LangFlag lang={movie.original_language} />
                 </p>
 
                 <p>
