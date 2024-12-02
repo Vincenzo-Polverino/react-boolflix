@@ -14,7 +14,7 @@ const AppHeader = ({ query, handleChange, handleSearch }) => {
                     onChange={handleChange}
                     placeholder="Cerca..."
                 />
-                <button className="btn btn-secondary" onClick={handleSearch}>
+                <button className="btn btn-danger" onClick={handleSearch}>
                     Cerca
                 </button>
             </div>

@@ -20,14 +20,14 @@ const App = () => {
       <AppHeader query={query} handleChange={handleChange} handleSearch={handleSearch} />
 
       <main className='container mt-5'>
-        <h2>Film</h2>
+        <h2 className='bg-secondary p-2 rounded text-center shadow'>Film</h2>
         {Array.isArray(movies) && movies.length > 0 ? (
           <MovieList movies={movies} getRatingStars={getRatingStars} />
         ) : (
           <h1 className='d-flex my-5 justify-content-center align-items-center'>Nessun Film trovato</h1>
         )}
 
-        <h2>Serie TV</h2>
+        <h2 className='bg-secondary p-2 rounded text-center shadow'>Serie TV</h2>
         {Array.isArray(shows) && shows.length > 0 ? (
           <ShowList shows={shows} getRatingStars={getRatingStars} />
         ) : (

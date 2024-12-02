@@ -16,6 +16,13 @@ header {
     z-index: 10;
 }
 
+main {
+
+    h2 {
+        color: white;
+    }
+}
+
 .card {
     position: relative;
     height: 500px;

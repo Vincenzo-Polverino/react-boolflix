@@ -22,13 +22,14 @@ const ShowCard = ({ show, getRatingStars }) => {
                 </p>
 
                 <p>
-                    <strong>Lingua: </strong>
+                    <strong>Lingua:</strong>
                     <img
-                        className="flag"
+                        className="flag mx-1"
                         src={`https://flagcdn.com/w20/${languageToFlag[show.original_language]}.png`}
                         alt={show.original_language}
                         style={{ width: '20px', height: '13px' }}
                     />
+                    {show.original_language}
                 </p>
 
                 <p>

@@ -22,13 +22,14 @@ const MovieCard = ({ movie, getRatingStars }) => {
                 </p>
 
                 <p>
-                    <strong>Lingua: </strong>
+                    <strong>Lingua:</strong>
                     <img
-                        className="flag"
+                        className="flag mx-1"
                         src={`https://flagcdn.com/w20/${languageToFlag[movie.original_language]}.png`}
                         alt={movie.original_language}
                         style={{ width: '20px', height: '13px' }}
                     />
+                    {movie.original_language}
                 </p>
 
                 <p>
