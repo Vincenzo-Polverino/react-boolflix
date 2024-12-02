@@ -11,10 +11,10 @@ const ShowCard = ({ show, getRatingStars }) => {
             <img
                 className="poster"
                 src={show.poster_path ? IMAGE_URL + show.poster_path : '/poster_placeholder.jpg'}
-                alt={show.title || show.name}
+                alt={show.name}
             />
             <div className="card-body">
-                <h3 className="card-title">{show.title || show.name}</h3>
+                <h3 className="card-title">{show.name}</h3>
 
                 <p>
                     <strong>Titolo originale: </strong>
