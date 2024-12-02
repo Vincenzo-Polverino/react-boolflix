@@ -7,7 +7,7 @@ const ShowCard = ({ show, getRatingStars }) => {
     const { IMAGE_URL } = useGlobalContext();
 
     return (
-        <li className="card shadow col-3 m-5" key={show.id}>
+        <li className="card shadow col-4 m-5" key={show.id}>
             <img
                 className="poster"
                 src={show.poster_path ? IMAGE_URL + show.poster_path : '/poster_placeholder.jpg'}
